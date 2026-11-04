@@ -1,0 +1,3021 @@
+{
+  "type": "result",
+  "mode": "benchmark",
+  "algorithm": "sudoku",
+  "axis": "empty cells",
+  "parameters": {
+    "algorithm": "sudoku",
+    "bench_samples": 3,
+    "bench_seconds": 0.5,
+    "bench_total_seconds": 10.0,
+    "groups": 8,
+    "players_per_group": 4,
+    "bench_from": 25,
+    "bench_to": 65,
+    "bench_step": 10
+  },
+  "trace_enabled": false,
+  "measurement": {
+    "python": "3.13.5",
+    "system": "Darwin",
+    "architecture": "arm64",
+    "checked_at_utc": "2026-11-04T22:44:56.523122+00:00",
+    "seconds_per_case": 0.5,
+    "total_budget_seconds": 10.0,
+    "sudoku_generator": "cyclic solved grid; sample blanks with random.Random(seed + sample_index)",
+    "uniqueness_tested": false
+  },
+  "rows": [
+    {
+      "value": 25,
+      "requested": 3,
+      "tested": 3,
+      "successful": 3,
+      "budget_stops": 0,
+      "stop_reasons": {},
+      "infeasible": 0,
+      "goals_found": 3,
+      "median_solved_seconds": 0.00011429100413806736,
+      "max_solved_seconds": 0.00013004199718125165,
+      "median_observed_seconds": 0.00011429100413806736,
+      "median_nodes": 46,
+      "peak_frontier": 10
+    },
+    {
+      "value": 35,
+      "requested": 3,
+      "tested": 3,
+      "successful": 3,
+      "budget_stops": 0,
+      "stop_reasons": {},
+      "infeasible": 0,
+      "goals_found": 3,
+      "median_solved_seconds": 0.00018724999972619116,
+      "max_solved_seconds": 0.0002017499937210232,
+      "median_observed_seconds": 0.00018724999972619116,
+      "median_nodes": 85,
+      "peak_frontier": 20
+    },
+    {
+      "value": 45,
+      "requested": 3,
+      "tested": 3,
+      "successful": 3,
+      "budget_stops": 0,
+      "stop_reasons": {},
+      "infeasible": 0,
+      "goals_found": 3,
+      "median_solved_seconds": 0.0030672080029034987,
+      "max_solved_seconds": 0.0058330419997219,
+      "median_observed_seconds": 0.0030672080029034987,
+      "median_nodes": 1452,
+      "peak_frontier": 468
+    },
+    {
+      "value": 55,
+      "requested": 3,
+      "tested": 3,
+      "successful": 0,
+      "budget_stops": 3,
+      "stop_reasons": {
+        "Frontier limit reached; feasibility is unknown.": 3
+      },
+      "infeasible": 0,
+      "goals_found": 0,
+      "median_solved_seconds": null,
+      "max_solved_seconds": null,
+      "median_observed_seconds": 0.27194004200282507,
+      "median_nodes": 112599,
+      "peak_frontier": 50000
+    },
+    {
+      "value": 65,
+      "requested": 3,
+      "tested": 3,
+      "successful": 0,
+      "budget_stops": 3,
+      "stop_reasons": {
+        "Frontier limit reached; feasibility is unknown.": 3
+      },
+      "infeasible": 0,
+      "goals_found": 0,
+      "median_solved_seconds": null,
+      "max_solved_seconds": null,
+      "median_observed_seconds": 0.07035354200343136,
+      "median_nodes": 22486,
+      "peak_frontier": 50000
+    }
+  ],
+  "runs": [
+    {
+      "value": 25,
+      "sample": 1,
+      "seed": 2026,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.00013004199718125165,
+      "expanded_nodes": 46,
+      "peak_frontier": 4,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            0,
+            4,
+            0,
+            0,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            0,
+            6,
+            7,
+            8,
+            0,
+            1,
+            2,
+            0,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            0
+          ],
+          [
+            3,
+            4,
+            0,
+            0,
+            7,
+            0,
+            9,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            9,
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 46,
+          "generated_nodes": 47,
+          "rejected_candidates": 359,
+          "dead_ends": 4,
+          "peak_frontier": 4,
+          "max_depth": 25,
+          "elapsed_seconds": 0.00013004199718125165,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 25,
+      "sample": 2,
+      "seed": 2027,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 7.683300646021962e-05,
+      "expanded_nodes": 29,
+      "peak_frontier": 2,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            1,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            7,
+            0,
+            9,
+            1,
+            0,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            0,
+            0,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            8,
+            9,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            8,
+            9,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            8,
+            9,
+            1,
+            0,
+            3,
+            4,
+            0,
+            0,
+            7
+          ],
+          [
+            0,
+            4,
+            5,
+            6,
+            7,
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            0,
+            0,
+            0,
+            5,
+            6,
+            0,
+            8
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 29,
+          "generated_nodes": 29,
+          "rejected_candidates": 224,
+          "dead_ends": 3,
+          "peak_frontier": 2,
+          "max_depth": 25,
+          "elapsed_seconds": 7.683300646021962e-05,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 25,
+      "sample": 3,
+      "seed": 2028,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.00011429100413806736,
+      "expanded_nodes": 48,
+      "peak_frontier": 10,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            0,
+            3,
+            0,
+            5,
+            6,
+            7,
+            0,
+            0
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            3,
+            0,
+            0,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            0,
+            6,
+            7,
+            0,
+            9,
+            1
+          ],
+          [
+            5,
+            0,
+            7,
+            0,
+            9,
+            1,
+            0,
+            3,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            0,
+            0,
+            0,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 48,
+          "generated_nodes": 48,
+          "rejected_candidates": 376,
+          "dead_ends": 13,
+          "peak_frontier": 10,
+          "max_depth": 25,
+          "elapsed_seconds": 0.00011429100413806736,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 35,
+      "sample": 1,
+      "seed": 2026,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.00016745801258366555,
+      "expanded_nodes": 76,
+      "peak_frontier": 6,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            2,
+            3,
+            4,
+            0,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            7,
+            8,
+            0,
+            1,
+            0,
+            3,
+            0,
+            0,
+            6
+          ],
+          [
+            2,
+            0,
+            4,
+            0,
+            0,
+            0,
+            8,
+            9,
+            1
+          ],
+          [
+            0,
+            6,
+            7,
+            8,
+            0,
+            1,
+            2,
+            0,
+            4
+          ],
+          [
+            8,
+            9,
+            0,
+            2,
+            3,
+            4,
+            5,
+            0,
+            0
+          ],
+          [
+            3,
+            4,
+            0,
+            0,
+            7,
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            9,
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            0,
+            5,
+            6,
+            0,
+            8
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 76,
+          "generated_nodes": 77,
+          "rejected_candidates": 599,
+          "dead_ends": 10,
+          "peak_frontier": 6,
+          "max_depth": 35,
+          "elapsed_seconds": 0.00016745801258366555,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 35,
+      "sample": 2,
+      "seed": 2027,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.00018724999972619116,
+      "expanded_nodes": 85,
+      "peak_frontier": 6,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            1,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            7,
+            0,
+            0,
+            1,
+            0,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            0,
+            0,
+            0,
+            4,
+            0,
+            6
+          ],
+          [
+            0,
+            3,
+            0,
+            5,
+            6,
+            0,
+            8,
+            9,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            8,
+            9,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            1,
+            0,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            5,
+            6,
+            7,
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            0,
+            5
+          ],
+          [
+            9,
+            1,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            8
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 85,
+          "generated_nodes": 86,
+          "rejected_candidates": 671,
+          "dead_ends": 12,
+          "peak_frontier": 6,
+          "max_depth": 35,
+          "elapsed_seconds": 0.00018724999972619116,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 35,
+      "sample": 3,
+      "seed": 2028,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.0002017499937210232,
+      "expanded_nodes": 93,
+      "peak_frontier": 20,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            0,
+            3,
+            0,
+            5,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            6,
+            7,
+            8,
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            0,
+            0,
+            6,
+            0,
+            0,
+            9,
+            1
+          ],
+          [
+            5,
+            0,
+            7,
+            0,
+            9,
+            1,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            0,
+            5,
+            6,
+            7,
+            8,
+            9,
+            0,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            0,
+            0,
+            0,
+            3,
+            4,
+            0
+          ],
+          [
+            9,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 93,
+          "generated_nodes": 93,
+          "rejected_candidates": 736,
+          "dead_ends": 28,
+          "peak_frontier": 20,
+          "max_depth": 35,
+          "elapsed_seconds": 0.0002017499937210232,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 45,
+      "sample": 1,
+      "seed": 2026,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.0058330419997219,
+      "expanded_nodes": 2637,
+      "peak_frontier": 468,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            2,
+            3,
+            4,
+            0,
+            0,
+            7,
+            8,
+            9
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            6
+          ],
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            7,
+            8,
+            0,
+            0,
+            2,
+            0,
+            4
+          ],
+          [
+            8,
+            9,
+            0,
+            2,
+            3,
+            4,
+            5,
+            0,
+            0
+          ],
+          [
+            3,
+            4,
+            0,
+            0,
+            7,
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            9,
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            0,
+            0,
+            6,
+            0,
+            8
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 2637,
+          "generated_nodes": 2644,
+          "rejected_candidates": 21081,
+          "dead_ends": 730,
+          "peak_frontier": 468,
+          "max_depth": 45,
+          "elapsed_seconds": 0.0058330419997219,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 45,
+      "sample": 2,
+      "seed": 2027,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.0030672080029034987,
+      "expanded_nodes": 1452,
+      "peak_frontier": 110,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            1,
+            0,
+            3,
+            0,
+            5,
+            6,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            1,
+            0,
+            3
+          ],
+          [
+            7,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ],
+          [
+            0,
+            3,
+            0,
+            5,
+            6,
+            0,
+            8,
+            9,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            9,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            8,
+            0,
+            1,
+            0,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            5,
+            6,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            8
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 1452,
+          "generated_nodes": 1454,
+          "rejected_candidates": 11606,
+          "dead_ends": 320,
+          "peak_frontier": 110,
+          "max_depth": 45,
+          "elapsed_seconds": 0.0030672080029034987,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 45,
+      "sample": 3,
+      "seed": 2028,
+      "status": "solved",
+      "success": true,
+      "elapsed_seconds": 0.0010645420115906745,
+      "expanded_nodes": 486,
+      "peak_frontier": 52,
+      "backtracks": null,
+      "goal_found": true,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            0,
+            3,
+            0,
+            5,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            8,
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            0,
+            0,
+            6,
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0,
+            1,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            7,
+            8,
+            9,
+            0,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            0,
+            0,
+            0,
+            3,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            0
+          ]
+        ],
+        "solution": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3
+          ],
+          [
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            1,
+            2
+          ],
+          [
+            6,
+            7,
+            8,
+            9,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            9,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "stats": {
+          "expanded_nodes": 486,
+          "generated_nodes": 487,
+          "rejected_candidates": 3879,
+          "dead_ends": 147,
+          "peak_frontier": 52,
+          "max_depth": 45,
+          "elapsed_seconds": 0.0010645420115906745,
+          "status": "solved"
+        },
+        "stop_reason": null,
+        "validation": {
+          "valid": true,
+          "objective": 0,
+          "errors": []
+        }
+      },
+      "stop_reason": null
+    },
+    {
+      "value": 55,
+      "sample": 1,
+      "seed": 2026,
+      "status": "resource_limit",
+      "success": false,
+      "elapsed_seconds": 0.27194004200282507,
+      "expanded_nodes": 112599,
+      "peak_frontier": 50000,
+      "backtracks": null,
+      "goal_found": false,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            7,
+            8,
+            9
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            8,
+            9,
+            0,
+            2,
+            0,
+            4,
+            5,
+            0,
+            0
+          ],
+          [
+            3,
+            4,
+            0,
+            0,
+            7,
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            9,
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            9,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8
+          ]
+        ],
+        "solution": null,
+        "stats": {
+          "expanded_nodes": 112599,
+          "generated_nodes": 162599,
+          "rejected_candidates": 850789,
+          "dead_ends": 7816,
+          "peak_frontier": 50000,
+          "max_depth": 24,
+          "elapsed_seconds": 0.27194004200282507,
+          "status": "resource_limit"
+        },
+        "stop_reason": "Frontier limit reached; feasibility is unknown.",
+        "validation": null
+      },
+      "stop_reason": "Frontier limit reached; feasibility is unknown."
+    },
+    {
+      "value": 55,
+      "sample": 2,
+      "seed": 2027,
+      "status": "resource_limit",
+      "success": false,
+      "elapsed_seconds": 0.23972079099621624,
+      "expanded_nodes": 98345,
+      "peak_frontier": 50000,
+      "backtracks": null,
+      "goal_found": false,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            1,
+            0,
+            0,
+            0,
+            5,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ],
+          [
+            0,
+            3,
+            0,
+            0,
+            6,
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            9,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            0,
+            6,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            7,
+            0,
+            9,
+            1,
+            2,
+            3,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            0
+          ]
+        ],
+        "solution": null,
+        "stats": {
+          "expanded_nodes": 98345,
+          "generated_nodes": 148345,
+          "rejected_candidates": 736758,
+          "dead_ends": 15314,
+          "peak_frontier": 50000,
+          "max_depth": 21,
+          "elapsed_seconds": 0.23972079099621624,
+          "status": "resource_limit"
+        },
+        "stop_reason": "Frontier limit reached; feasibility is unknown.",
+        "validation": null
+      },
+      "stop_reason": "Frontier limit reached; feasibility is unknown."
+    },
+    {
+      "value": 55,
+      "sample": 3,
+      "seed": 2028,
+      "status": "resource_limit",
+      "success": false,
+      "elapsed_seconds": 0.3210337499913294,
+      "expanded_nodes": 134099,
+      "peak_frontier": 50000,
+      "backtracks": null,
+      "goal_found": false,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            0,
+            3,
+            0,
+            5,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            0,
+            0,
+            6,
+            0,
+            0,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            3,
+            4,
+            5,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            7,
+            8,
+            0,
+            0,
+            2
+          ],
+          [
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            0
+          ]
+        ],
+        "solution": null,
+        "stats": {
+          "expanded_nodes": 134099,
+          "generated_nodes": 184099,
+          "rejected_candidates": 1022791,
+          "dead_ends": 20367,
+          "peak_frontier": 50000,
+          "max_depth": 23,
+          "elapsed_seconds": 0.3210337499913294,
+          "status": "resource_limit"
+        },
+        "stop_reason": "Frontier limit reached; feasibility is unknown.",
+        "validation": null
+      },
+      "stop_reason": "Frontier limit reached; feasibility is unknown."
+    },
+    {
+      "value": 65,
+      "sample": 1,
+      "seed": 2026,
+      "status": "resource_limit",
+      "success": false,
+      "elapsed_seconds": 0.07035354200343136,
+      "expanded_nodes": 22486,
+      "peak_frontier": 50000,
+      "backtracks": null,
+      "goal_found": false,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            8,
+            9,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7,
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            9,
+            1,
+            0,
+            3,
+            0,
+            0
+          ],
+          [
+            9,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "solution": null,
+        "stats": {
+          "expanded_nodes": 22486,
+          "generated_nodes": 72486,
+          "rejected_candidates": 129883,
+          "dead_ends": 362,
+          "peak_frontier": 50000,
+          "max_depth": 10,
+          "elapsed_seconds": 0.07035354200343136,
+          "status": "resource_limit"
+        },
+        "stop_reason": "Frontier limit reached; feasibility is unknown.",
+        "validation": null
+      },
+      "stop_reason": "Frontier limit reached; feasibility is unknown."
+    },
+    {
+      "value": 65,
+      "sample": 2,
+      "seed": 2027,
+      "status": "resource_limit",
+      "success": false,
+      "elapsed_seconds": 0.07027075000223704,
+      "expanded_nodes": 22386,
+      "peak_frontier": 50000,
+      "backtracks": null,
+      "goal_found": false,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            1,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            9,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0,
+            0
+          ]
+        ],
+        "solution": null,
+        "stats": {
+          "expanded_nodes": 22386,
+          "generated_nodes": 72386,
+          "rejected_candidates": 129087,
+          "dead_ends": 0,
+          "peak_frontier": 50000,
+          "max_depth": 9,
+          "elapsed_seconds": 0.07027075000223704,
+          "status": "resource_limit"
+        },
+        "stop_reason": "Frontier limit reached; feasibility is unknown.",
+        "validation": null
+      },
+      "stop_reason": "Frontier limit reached; feasibility is unknown."
+    },
+    {
+      "value": 65,
+      "sample": 3,
+      "seed": 2028,
+      "status": "resource_limit",
+      "success": false,
+      "elapsed_seconds": 0.07414566700754222,
+      "expanded_nodes": 24114,
+      "peak_frontier": 50000,
+      "backtracks": null,
+      "goal_found": false,
+      "effective_time_limit": 0.5,
+      "result": {
+        "difficulty": "custom",
+        "input": [
+          [
+            0,
+            0,
+            3,
+            0,
+            5,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            0,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            2
+          ],
+          [
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            0,
+            0,
+            5,
+            0,
+            0,
+            0
+          ]
+        ],
+        "solution": null,
+        "stats": {
+          "expanded_nodes": 24114,
+          "generated_nodes": 74114,
+          "rejected_candidates": 142910,
+          "dead_ends": 86,
+          "peak_frontier": 50000,
+          "max_depth": 10,
+          "elapsed_seconds": 0.07414566700754222,
+          "status": "resource_limit"
+        },
+        "stop_reason": "Frontier limit reached; feasibility is unknown.",
+        "validation": null
+      },
+      "stop_reason": "Frontier limit reached; feasibility is unknown."
+    }
+  ],
+  "summary": {
+    "largest_observed_success": 45,
+    "largest_all_samples_successful": 45,
+    "completed_trials": 15,
+    "planned_trials": 15,
+    "total_budget_exhausted": false,
+    "wall_seconds": 1.0758972079929663,
+    "claim": "Observed successes for these instances and budgets only; not a universal maximum or runtime prediction."
+  }
+}

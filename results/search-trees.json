@@ -1,0 +1,2496 @@
+[
+  {
+    "problem": "8-puzzle",
+    "description": "3x3 board, 0=blank; start 123/456/078; goal 123/456/780. Order: Up, Down, Left, Right.",
+    "algorithm": "FIFO BFS",
+    "max_depth": 3,
+    "max_nodes": 5000,
+    "truncated": true,
+    "nodes": [
+      {
+        "id": 0,
+        "parent": null,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          0,
+          7,
+          8
+        ],
+        "action": "Start",
+        "depth": 0,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Down",
+            "reason": "Blank would leave the board."
+          },
+          {
+            "action": "Left",
+            "reason": "Blank would leave the board."
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "parent": 0,
+        "state": [
+          1,
+          2,
+          3,
+          0,
+          5,
+          6,
+          4,
+          7,
+          8
+        ],
+        "action": "Up",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Left",
+            "reason": "Blank would leave the board."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "parent": 0,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          8
+        ],
+        "action": "Right",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Down",
+            "reason": "Blank would leave the board."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "parent": 1,
+        "state": [
+          0,
+          2,
+          3,
+          1,
+          5,
+          6,
+          4,
+          7,
+          8
+        ],
+        "action": "Up",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Up",
+            "reason": "Blank would leave the board."
+          },
+          {
+            "action": "Left",
+            "reason": "Blank would leave the board."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "parent": 1,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          0,
+          7,
+          8
+        ],
+        "action": "Down",
+        "depth": 2,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 0
+      },
+      {
+        "id": 5,
+        "parent": 1,
+        "state": [
+          1,
+          2,
+          3,
+          5,
+          0,
+          6,
+          4,
+          7,
+          8
+        ],
+        "action": "Right",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": []
+      },
+      {
+        "id": 6,
+        "parent": 2,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          0,
+          6,
+          7,
+          5,
+          8
+        ],
+        "action": "Up",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": []
+      },
+      {
+        "id": 7,
+        "parent": 2,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          0,
+          7,
+          8
+        ],
+        "action": "Left",
+        "depth": 2,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 0
+      },
+      {
+        "id": 8,
+        "parent": 2,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          0
+        ],
+        "action": "Right",
+        "depth": 2,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 9,
+        "parent": 3,
+        "state": [
+          1,
+          2,
+          3,
+          0,
+          5,
+          6,
+          4,
+          7,
+          8
+        ],
+        "action": "Down",
+        "depth": 3,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 1
+      },
+      {
+        "id": 10,
+        "parent": 3,
+        "state": [
+          2,
+          0,
+          3,
+          1,
+          5,
+          6,
+          4,
+          7,
+          8
+        ],
+        "action": "Right",
+        "depth": 3,
+        "kind": "depth_limit",
+        "rejections": []
+      },
+      {
+        "id": 11,
+        "parent": 5,
+        "state": [
+          1,
+          0,
+          3,
+          5,
+          2,
+          6,
+          4,
+          7,
+          8
+        ],
+        "action": "Up",
+        "depth": 3,
+        "kind": "depth_limit",
+        "rejections": []
+      },
+      {
+        "id": 12,
+        "parent": 5,
+        "state": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          6,
+          4,
+          0,
+          8
+        ],
+        "action": "Down",
+        "depth": 3,
+        "kind": "depth_limit",
+        "rejections": []
+      },
+      {
+        "id": 13,
+        "parent": 5,
+        "state": [
+          1,
+          2,
+          3,
+          0,
+          5,
+          6,
+          4,
+          7,
+          8
+        ],
+        "action": "Left",
+        "depth": 3,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 1
+      },
+      {
+        "id": 14,
+        "parent": 5,
+        "state": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          0,
+          4,
+          7,
+          8
+        ],
+        "action": "Right",
+        "depth": 3,
+        "kind": "depth_limit",
+        "rejections": []
+      },
+      {
+        "id": 15,
+        "parent": 6,
+        "state": [
+          1,
+          0,
+          3,
+          4,
+          2,
+          6,
+          7,
+          5,
+          8
+        ],
+        "action": "Up",
+        "depth": 3,
+        "kind": "depth_limit",
+        "rejections": []
+      },
+      {
+        "id": 16,
+        "parent": 6,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          8
+        ],
+        "action": "Down",
+        "depth": 3,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 2
+      },
+      {
+        "id": 17,
+        "parent": 6,
+        "state": [
+          1,
+          2,
+          3,
+          0,
+          4,
+          6,
+          7,
+          5,
+          8
+        ],
+        "action": "Left",
+        "depth": 3,
+        "kind": "depth_limit",
+        "rejections": []
+      },
+      {
+        "id": 18,
+        "parent": 6,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          0,
+          7,
+          5,
+          8
+        ],
+        "action": "Right",
+        "depth": 3,
+        "kind": "depth_limit",
+        "rejections": []
+      }
+    ],
+    "solution_path": [
+      0,
+      2,
+      8
+    ],
+    "stats": {
+      "expanded_nodes": 6,
+      "unique_states": 14,
+      "tree_nodes": 19,
+      "peak_frontier": 8,
+      "elapsed_seconds": 2.216699067503214e-05
+    },
+    "validation": {
+      "valid": true,
+      "errors": []
+    }
+  },
+  {
+    "problem": "missionaries",
+    "description": "3 missionaries, 3 cannibals, capacity 2; boat carries 1 or 2 people. State (M left, C left, boat bank); 0=left, 1=right. Both banks must be safe.",
+    "algorithm": "FIFO BFS",
+    "max_depth": 12,
+    "max_nodes": 5000,
+    "truncated": false,
+    "nodes": [
+      {
+        "id": 0,
+        "parent": null,
+        "state": [
+          3,
+          3,
+          0
+        ],
+        "action": "Start",
+        "depth": 0,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "2M,0C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "parent": 0,
+        "state": [
+          3,
+          2,
+          1
+        ],
+        "action": "0M,1C L->R",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "2M,0C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "1M,1C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "0M,2C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "parent": 0,
+        "state": [
+          2,
+          2,
+          1
+        ],
+        "action": "1M,1C L->R",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "0M,1C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "2M,0C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "0M,2C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "parent": 0,
+        "state": [
+          3,
+          1,
+          1
+        ],
+        "action": "0M,2C L->R",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "2M,0C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "1M,1C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "parent": 1,
+        "state": [
+          3,
+          3,
+          0
+        ],
+        "action": "0M,1C R->L",
+        "depth": 2,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 0
+      },
+      {
+        "id": 5,
+        "parent": 2,
+        "state": [
+          3,
+          2,
+          0
+        ],
+        "action": "1M,0C R->L",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "2M,0C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "1M,1C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "parent": 2,
+        "state": [
+          3,
+          3,
+          0
+        ],
+        "action": "1M,1C R->L",
+        "depth": 2,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 0
+      },
+      {
+        "id": 7,
+        "parent": 3,
+        "state": [
+          3,
+          2,
+          0
+        ],
+        "action": "0M,1C R->L",
+        "depth": 2,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 5
+      },
+      {
+        "id": 8,
+        "parent": 3,
+        "state": [
+          3,
+          3,
+          0
+        ],
+        "action": "0M,2C R->L",
+        "depth": 2,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 0
+      },
+      {
+        "id": 9,
+        "parent": 5,
+        "state": [
+          2,
+          2,
+          1
+        ],
+        "action": "1M,0C L->R",
+        "depth": 3,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 2
+      },
+      {
+        "id": 10,
+        "parent": 5,
+        "state": [
+          3,
+          1,
+          1
+        ],
+        "action": "0M,1C L->R",
+        "depth": 3,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 3
+      },
+      {
+        "id": 11,
+        "parent": 5,
+        "state": [
+          3,
+          0,
+          1
+        ],
+        "action": "0M,2C L->R",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "2M,0C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "1M,1C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "parent": 11,
+        "state": [
+          3,
+          1,
+          0
+        ],
+        "action": "0M,1C R->L",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "1M,1C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "0M,2C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "parent": 11,
+        "state": [
+          3,
+          2,
+          0
+        ],
+        "action": "0M,2C R->L",
+        "depth": 4,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 5
+      },
+      {
+        "id": 14,
+        "parent": 12,
+        "state": [
+          3,
+          0,
+          1
+        ],
+        "action": "0M,1C L->R",
+        "depth": 5,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 11
+      },
+      {
+        "id": 15,
+        "parent": 12,
+        "state": [
+          1,
+          1,
+          1
+        ],
+        "action": "2M,0C L->R",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "0M,1C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "0M,2C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "parent": 15,
+        "state": [
+          3,
+          1,
+          0
+        ],
+        "action": "2M,0C R->L",
+        "depth": 6,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 12
+      },
+      {
+        "id": 17,
+        "parent": 15,
+        "state": [
+          2,
+          2,
+          0
+        ],
+        "action": "1M,1C R->L",
+        "depth": 6,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "0M,1C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "0M,2C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "parent": 17,
+        "state": [
+          0,
+          2,
+          1
+        ],
+        "action": "2M,0C L->R",
+        "depth": 7,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "1M,1C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "0M,2C R->L",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "parent": 17,
+        "state": [
+          1,
+          1,
+          1
+        ],
+        "action": "1M,1C L->R",
+        "depth": 7,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 15
+      },
+      {
+        "id": 20,
+        "parent": 18,
+        "state": [
+          0,
+          3,
+          0
+        ],
+        "action": "0M,1C R->L",
+        "depth": 8,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "2M,0C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "1M,1C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "parent": 18,
+        "state": [
+          2,
+          2,
+          0
+        ],
+        "action": "2M,0C R->L",
+        "depth": 8,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 17
+      },
+      {
+        "id": 22,
+        "parent": 20,
+        "state": [
+          0,
+          2,
+          1
+        ],
+        "action": "0M,1C L->R",
+        "depth": 9,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 18
+      },
+      {
+        "id": 23,
+        "parent": 20,
+        "state": [
+          0,
+          1,
+          1
+        ],
+        "action": "0M,2C L->R",
+        "depth": 9,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "2M,0C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "1M,1C R->L",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "parent": 23,
+        "state": [
+          1,
+          1,
+          0
+        ],
+        "action": "1M,0C R->L",
+        "depth": 10,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "0M,1C L->R",
+            "reason": "Cannibals outnumber missionaries on a bank."
+          },
+          {
+            "action": "2M,0C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "0M,2C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "parent": 23,
+        "state": [
+          0,
+          2,
+          0
+        ],
+        "action": "0M,1C R->L",
+        "depth": 10,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "1M,0C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "2M,0C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          },
+          {
+            "action": "1M,1C L->R",
+            "reason": "Passengers unavailable on departure bank."
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "parent": 23,
+        "state": [
+          0,
+          3,
+          0
+        ],
+        "action": "0M,2C R->L",
+        "depth": 10,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 20
+      },
+      {
+        "id": 27,
+        "parent": 24,
+        "state": [
+          0,
+          1,
+          1
+        ],
+        "action": "1M,0C L->R",
+        "depth": 11,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 23
+      },
+      {
+        "id": 28,
+        "parent": 24,
+        "state": [
+          0,
+          0,
+          1
+        ],
+        "action": "1M,1C L->R",
+        "depth": 11,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 29,
+        "parent": 25,
+        "state": [
+          0,
+          1,
+          1
+        ],
+        "action": "0M,1C L->R",
+        "depth": 11,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 23
+      },
+      {
+        "id": 30,
+        "parent": 25,
+        "state": [
+          0,
+          0,
+          1
+        ],
+        "action": "0M,2C L->R",
+        "depth": 11,
+        "kind": "repeated",
+        "rejections": [],
+        "repeat_of": 28
+      }
+    ],
+    "solution_path": [
+      0,
+      2,
+      5,
+      11,
+      12,
+      15,
+      17,
+      18,
+      20,
+      23,
+      24,
+      28
+    ],
+    "stats": {
+      "expanded_nodes": 14,
+      "unique_states": 15,
+      "tree_nodes": 31,
+      "peak_frontier": 3,
+      "elapsed_seconds": 3.454199759289622e-05
+    },
+    "validation": {
+      "valid": true,
+      "errors": []
+    }
+  },
+  {
+    "problem": "workforce",
+    "description": "3 workers; 6-day repeating cycle; shifts D=Day, N=Night, O=Off. Worker w follows base[(day-2*w) mod 6]. Exactly one D/N/O per day, two of each shift per worker, at most two consecutive working days, no N->D, including cycle boundary. State is a base-pattern prefix; order D,N,O.",
+    "algorithm": "FIFO BFS",
+    "max_depth": 6,
+    "max_nodes": 5000,
+    "truncated": false,
+    "nodes": [
+      {
+        "id": 0,
+        "parent": null,
+        "state": [],
+        "action": "Start",
+        "depth": 0,
+        "kind": "expanded",
+        "rejections": []
+      },
+      {
+        "id": 1,
+        "parent": 0,
+        "state": [
+          "D"
+        ],
+        "action": "Base day 1 = D",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": []
+      },
+      {
+        "id": 2,
+        "parent": 0,
+        "state": [
+          "N"
+        ],
+        "action": "Base day 1 = N",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 2 = D",
+            "reason": "Night cannot be followed by Day."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "parent": 0,
+        "state": [
+          "O"
+        ],
+        "action": "Base day 1 = O",
+        "depth": 1,
+        "kind": "expanded",
+        "rejections": []
+      },
+      {
+        "id": 4,
+        "parent": 1,
+        "state": [
+          "D",
+          "D"
+        ],
+        "action": "Base day 2 = D",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 3 = N",
+            "reason": "More than two consecutive working days."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "parent": 1,
+        "state": [
+          "D",
+          "N"
+        ],
+        "action": "Base day 2 = N",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 3 = N",
+            "reason": "More than two consecutive working days."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "parent": 1,
+        "state": [
+          "D",
+          "O"
+        ],
+        "action": "Base day 2 = O",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = D",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "parent": 2,
+        "state": [
+          "N",
+          "N"
+        ],
+        "action": "Base day 2 = N",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 3 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "parent": 2,
+        "state": [
+          "N",
+          "O"
+        ],
+        "action": "Base day 2 = O",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = N",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "parent": 3,
+        "state": [
+          "O",
+          "D"
+        ],
+        "action": "Base day 2 = D",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = O",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "parent": 3,
+        "state": [
+          "O",
+          "N"
+        ],
+        "action": "Base day 2 = N",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 3 = O",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "parent": 3,
+        "state": [
+          "O",
+          "O"
+        ],
+        "action": "Base day 2 = O",
+        "depth": 2,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 3 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "parent": 4,
+        "state": [
+          "D",
+          "D",
+          "O"
+        ],
+        "action": "Base day 3 = O",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = D",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "parent": 5,
+        "state": [
+          "D",
+          "N",
+          "O"
+        ],
+        "action": "Base day 3 = O",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = N",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "parent": 6,
+        "state": [
+          "D",
+          "O",
+          "N"
+        ],
+        "action": "Base day 3 = N",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 4 = O",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "parent": 6,
+        "state": [
+          "D",
+          "O",
+          "O"
+        ],
+        "action": "Base day 3 = O",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "parent": 7,
+        "state": [
+          "N",
+          "N",
+          "O"
+        ],
+        "action": "Base day 3 = O",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "parent": 8,
+        "state": [
+          "N",
+          "O",
+          "D"
+        ],
+        "action": "Base day 3 = D",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = O",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "parent": 8,
+        "state": [
+          "N",
+          "O",
+          "O"
+        ],
+        "action": "Base day 3 = O",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "parent": 9,
+        "state": [
+          "O",
+          "D",
+          "D"
+        ],
+        "action": "Base day 3 = D",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 4 = N",
+            "reason": "More than two consecutive working days."
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "parent": 9,
+        "state": [
+          "O",
+          "D",
+          "N"
+        ],
+        "action": "Base day 3 = N",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 4 = N",
+            "reason": "More than two consecutive working days."
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "parent": 10,
+        "state": [
+          "O",
+          "N",
+          "N"
+        ],
+        "action": "Base day 3 = N",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 4 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "parent": 11,
+        "state": [
+          "O",
+          "O",
+          "D"
+        ],
+        "action": "Base day 3 = D",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "parent": 11,
+        "state": [
+          "O",
+          "O",
+          "N"
+        ],
+        "action": "Base day 3 = N",
+        "depth": 3,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 4 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 4 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "parent": 12,
+        "state": [
+          "D",
+          "D",
+          "O",
+          "N"
+        ],
+        "action": "Base day 4 = N",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "parent": 12,
+        "state": [
+          "D",
+          "D",
+          "O",
+          "O"
+        ],
+        "action": "Base day 4 = O",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "parent": 13,
+        "state": [
+          "D",
+          "N",
+          "O",
+          "D"
+        ],
+        "action": "Base day 4 = D",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "parent": 13,
+        "state": [
+          "D",
+          "N",
+          "O",
+          "O"
+        ],
+        "action": "Base day 4 = O",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "parent": 14,
+        "state": [
+          "D",
+          "O",
+          "N",
+          "N"
+        ],
+        "action": "Base day 4 = N",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 5 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 29,
+        "parent": 15,
+        "state": [
+          "D",
+          "O",
+          "O",
+          "D"
+        ],
+        "action": "Base day 4 = D",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "parent": 15,
+        "state": [
+          "D",
+          "O",
+          "O",
+          "N"
+        ],
+        "action": "Base day 4 = N",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "parent": 16,
+        "state": [
+          "N",
+          "N",
+          "O",
+          "D"
+        ],
+        "action": "Base day 4 = D",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "parent": 16,
+        "state": [
+          "N",
+          "N",
+          "O",
+          "O"
+        ],
+        "action": "Base day 4 = O",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "parent": 17,
+        "state": [
+          "N",
+          "O",
+          "D",
+          "D"
+        ],
+        "action": "Base day 4 = D",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = N",
+            "reason": "More than two consecutive working days."
+          }
+        ]
+      },
+      {
+        "id": 34,
+        "parent": 17,
+        "state": [
+          "N",
+          "O",
+          "D",
+          "N"
+        ],
+        "action": "Base day 4 = N",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 5 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 35,
+        "parent": 18,
+        "state": [
+          "N",
+          "O",
+          "O",
+          "D"
+        ],
+        "action": "Base day 4 = D",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = N",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "parent": 18,
+        "state": [
+          "N",
+          "O",
+          "O",
+          "N"
+        ],
+        "action": "Base day 4 = N",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 5 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "parent": 19,
+        "state": [
+          "O",
+          "D",
+          "D",
+          "O"
+        ],
+        "action": "Base day 4 = O",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "parent": 20,
+        "state": [
+          "O",
+          "D",
+          "N",
+          "O"
+        ],
+        "action": "Base day 4 = O",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = N",
+            "reason": "Daily coverage requires one Day, one Night and one Off."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "parent": 21,
+        "state": [
+          "O",
+          "N",
+          "N",
+          "O"
+        ],
+        "action": "Base day 4 = O",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "parent": 22,
+        "state": [
+          "O",
+          "O",
+          "D",
+          "D"
+        ],
+        "action": "Base day 4 = D",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = N",
+            "reason": "More than two consecutive working days."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 41,
+        "parent": 22,
+        "state": [
+          "O",
+          "O",
+          "D",
+          "N"
+        ],
+        "action": "Base day 4 = N",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 5 = N",
+            "reason": "More than two consecutive working days."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 42,
+        "parent": 23,
+        "state": [
+          "O",
+          "O",
+          "N",
+          "N"
+        ],
+        "action": "Base day 4 = N",
+        "depth": 4,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 5 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 5 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 5 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 43,
+        "parent": 24,
+        "state": [
+          "D",
+          "D",
+          "O",
+          "N",
+          "N"
+        ],
+        "action": "Base day 5 = N",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 44,
+        "parent": 25,
+        "state": [
+          "D",
+          "D",
+          "O",
+          "O",
+          "N"
+        ],
+        "action": "Base day 5 = N",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "Consecutive-work violation across cycle boundary."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 45,
+        "parent": 26,
+        "state": [
+          "D",
+          "N",
+          "O",
+          "D",
+          "N"
+        ],
+        "action": "Base day 5 = N",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 46,
+        "parent": 27,
+        "state": [
+          "D",
+          "N",
+          "O",
+          "O",
+          "N"
+        ],
+        "action": "Base day 5 = N",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 47,
+        "parent": 28,
+        "state": [
+          "D",
+          "O",
+          "N",
+          "N",
+          "O"
+        ],
+        "action": "Base day 5 = O",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 48,
+        "parent": 29,
+        "state": [
+          "D",
+          "O",
+          "O",
+          "D",
+          "N"
+        ],
+        "action": "Base day 5 = N",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "More than two consecutive working days."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 49,
+        "parent": 30,
+        "state": [
+          "D",
+          "O",
+          "O",
+          "N",
+          "N"
+        ],
+        "action": "Base day 5 = N",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "Night cannot be followed by Day."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 50,
+        "parent": 31,
+        "state": [
+          "N",
+          "N",
+          "O",
+          "D",
+          "D"
+        ],
+        "action": "Base day 5 = D",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 51,
+        "parent": 32,
+        "state": [
+          "N",
+          "N",
+          "O",
+          "O",
+          "D"
+        ],
+        "action": "Base day 5 = D",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "Consecutive-work violation across cycle boundary."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 52,
+        "parent": 33,
+        "state": [
+          "N",
+          "O",
+          "D",
+          "D",
+          "O"
+        ],
+        "action": "Base day 5 = O",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 53,
+        "parent": 34,
+        "state": [
+          "N",
+          "O",
+          "D",
+          "N",
+          "O"
+        ],
+        "action": "Base day 5 = O",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 54,
+        "parent": 35,
+        "state": [
+          "N",
+          "O",
+          "O",
+          "D",
+          "D"
+        ],
+        "action": "Base day 5 = D",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = N",
+            "reason": "More than two consecutive working days."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 55,
+        "parent": 37,
+        "state": [
+          "O",
+          "D",
+          "D",
+          "O",
+          "N"
+        ],
+        "action": "Base day 5 = N",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 56,
+        "parent": 38,
+        "state": [
+          "O",
+          "D",
+          "N",
+          "O",
+          "D"
+        ],
+        "action": "Base day 5 = D",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = D",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 57,
+        "parent": 39,
+        "state": [
+          "O",
+          "N",
+          "N",
+          "O",
+          "D"
+        ],
+        "action": "Base day 5 = D",
+        "depth": 5,
+        "kind": "expanded",
+        "rejections": [
+          {
+            "action": "Base day 6 = N",
+            "reason": "A worker would exceed two days of a shift."
+          },
+          {
+            "action": "Base day 6 = O",
+            "reason": "A worker would exceed two days of a shift."
+          }
+        ]
+      },
+      {
+        "id": 58,
+        "parent": 43,
+        "state": [
+          "D",
+          "D",
+          "O",
+          "N",
+          "N",
+          "O"
+        ],
+        "action": "Base day 6 = O",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 59,
+        "parent": 45,
+        "state": [
+          "D",
+          "N",
+          "O",
+          "D",
+          "N",
+          "O"
+        ],
+        "action": "Base day 6 = O",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 60,
+        "parent": 47,
+        "state": [
+          "D",
+          "O",
+          "N",
+          "N",
+          "O",
+          "D"
+        ],
+        "action": "Base day 6 = D",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 61,
+        "parent": 50,
+        "state": [
+          "N",
+          "N",
+          "O",
+          "D",
+          "D",
+          "O"
+        ],
+        "action": "Base day 6 = O",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 62,
+        "parent": 52,
+        "state": [
+          "N",
+          "O",
+          "D",
+          "D",
+          "O",
+          "N"
+        ],
+        "action": "Base day 6 = N",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 63,
+        "parent": 53,
+        "state": [
+          "N",
+          "O",
+          "D",
+          "N",
+          "O",
+          "D"
+        ],
+        "action": "Base day 6 = D",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 64,
+        "parent": 55,
+        "state": [
+          "O",
+          "D",
+          "D",
+          "O",
+          "N",
+          "N"
+        ],
+        "action": "Base day 6 = N",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 65,
+        "parent": 56,
+        "state": [
+          "O",
+          "D",
+          "N",
+          "O",
+          "D",
+          "N"
+        ],
+        "action": "Base day 6 = N",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      },
+      {
+        "id": 66,
+        "parent": 57,
+        "state": [
+          "O",
+          "N",
+          "N",
+          "O",
+          "D",
+          "D"
+        ],
+        "action": "Base day 6 = D",
+        "depth": 6,
+        "kind": "goal",
+        "rejections": []
+      }
+    ],
+    "solution_path": [
+      0,
+      1,
+      4,
+      12,
+      24,
+      43,
+      58
+    ],
+    "stats": {
+      "expanded_nodes": 58,
+      "unique_states": 67,
+      "tree_nodes": 67,
+      "peak_frontier": 19,
+      "elapsed_seconds": 0.00025762499717529863
+    },
+    "validation": {
+      "valid": true,
+      "errors": []
+    }
+  }
+]

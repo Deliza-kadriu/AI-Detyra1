@@ -1,0 +1,85 @@
+{
+  "evidence_kind": "independently validated published witness, not local DFS output",
+  "source_url": "https://web.archive.org/web/20130516045754/http://www.maa.org/editorial/mathgames/mathgames_08_14_07.html",
+  "problem": {
+    "groups": 8,
+    "players_per_group": 4
+  },
+  "verified_feasible_weeks": 10,
+  "pair_counting_upper_bound": 10,
+  "maximum_proven": true,
+  "optimal_weeks": 10,
+  "distinct_pairs_met": 480,
+  "partners_per_player": 30,
+  "unmet_pairs": [
+    [
+      0,
+      16
+    ],
+    [
+      1,
+      17
+    ],
+    [
+      2,
+      18
+    ],
+    [
+      3,
+      19
+    ],
+    [
+      4,
+      20
+    ],
+    [
+      5,
+      21
+    ],
+    [
+      6,
+      22
+    ],
+    [
+      7,
+      23
+    ],
+    [
+      8,
+      24
+    ],
+    [
+      9,
+      25
+    ],
+    [
+      10,
+      26
+    ],
+    [
+      11,
+      27
+    ],
+    [
+      12,
+      28
+    ],
+    [
+      13,
+      29
+    ],
+    [
+      14,
+      30
+    ],
+    [
+      15,
+      31
+    ]
+  ],
+  "validation": {
+    "valid": true,
+    "objective": 0,
+    "errors": []
+  }
+}

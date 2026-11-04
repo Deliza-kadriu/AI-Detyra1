@@ -1,0 +1,147 @@
+{
+  "size": 5,
+  "algorithm": "IDDFS with backtracking",
+  "goal_depth_pruning": false,
+  "symmetry_breaking": true,
+  "limits": {
+    "max_nodes": 1000000,
+    "time_limit": 10
+  },
+  "landscape": 298023223876953125,
+  "stats": {
+    "expanded_nodes": 4914,
+    "backtracks": 4881,
+    "max_depth": 16,
+    "elapsed_seconds": 0.0022656660003121942,
+    "status": "solved",
+    "iterations": [
+      {
+        "limit": 0,
+        "nodes": 1,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 1,
+        "nodes": 5,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 2,
+        "nodes": 14,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 3,
+        "nodes": 28,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 4,
+        "nodes": 39,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 5,
+        "nodes": 64,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 6,
+        "nodes": 125,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 7,
+        "nodes": 201,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 8,
+        "nodes": 247,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 9,
+        "nodes": 323,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 10,
+        "nodes": 433,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 11,
+        "nodes": 569,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 12,
+        "nodes": 625,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 13,
+        "nodes": 681,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 14,
+        "nodes": 737,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 15,
+        "nodes": 793,
+        "outcome": "cutoff"
+      },
+      {
+        "limit": 16,
+        "nodes": 29,
+        "outcome": "solved"
+      }
+    ]
+  },
+  "square": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      2,
+      1,
+      4,
+      5,
+      3
+    ],
+    [
+      3,
+      4,
+      5,
+      1,
+      2
+    ],
+    [
+      4,
+      5,
+      2,
+      3,
+      1
+    ],
+    [
+      5,
+      3,
+      1,
+      2,
+      4
+    ]
+  ],
+  "validation": {
+    "valid": true,
+    "objective": 0,
+    "errors": []
+  }
+}

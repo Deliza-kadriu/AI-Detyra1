@@ -119,7 +119,7 @@
         "dead_ends": 4,
         "peak_frontier": 4,
         "max_depth": 25,
-        "elapsed_seconds": 0.00011712500418070704,
+        "elapsed_seconds": 0.00011949999316129833,
         "status": "solved"
       },
       "solution": [
@@ -341,7 +341,7 @@
         "dead_ends": 10,
         "peak_frontier": 6,
         "max_depth": 35,
-        "elapsed_seconds": 0.0001806250074878335,
+        "elapsed_seconds": 0.00017349999689031392,
         "status": "solved"
       },
       "solution": [
@@ -563,7 +563,7 @@
         "dead_ends": 730,
         "peak_frontier": 468,
         "max_depth": 45,
-        "elapsed_seconds": 0.005648834005114622,
+        "elapsed_seconds": 0.005762250002590008,
         "status": "solved"
       },
       "solution": [

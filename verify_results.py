@@ -29,6 +29,18 @@ def main():
                 run['schedule'], p['groups'], p['players_per_group'], p['weeks']))
         else:
             print(f"Golfers {p['weeks']} weeks: {run['stats']['status']} (no solution to validate)")
+    for name in ['golfers-explore-32.json','golfers-restarts-32.json','golfers-structured-9.json']:
+        document = json.loads((results / name).read_text())
+        for run in document['runs']:
+            p = run['problem']
+            completed = len(run['schedule']) if run['schedule'] else 0
+            if completed:
+                check(f'{name}: {completed} retained weeks', validate_schedule(
+                    run['schedule'],p['groups'],p['players_per_group'],completed))
+            if run['completed_weeks'] != completed or run['target_reached'] != (completed == p['weeks']):
+                raise ValueError(f'{name}: incorrect target/completed metadata.')
+        if document['summary']['best_weeks_found'] != max(r['completed_weeks'] for r in document['runs']):
+            raise ValueError(f'{name}: incorrect best-weeks summary.')
     for run in json.loads((results / 'sudoku.json').read_text())['runs']:
         check(f"Sudoku {run['difficulty']}", validate_solution(run['input'], run['solution']))
     for filename in ['latin-5.json', 'latin-3-classic.json']:
@@ -54,7 +66,7 @@ def main():
             elif algorithm == 'golfers' and raw['schedule'] is not None:
                 params = benchmark['parameters']
                 validation = validate_schedule(raw['schedule'], params.get('groups', 3),
-                                               params.get('players_per_group', 2), trial['value'])
+                                               params.get('players_per_group', 2), raw['weeks'])
             elif algorithm == 'latin' and raw['square'] is not None:
                 validation = validate_square(raw['square'], trial['value'])
             elif algorithm == 'trees' and raw['tree']['solution_path']:
@@ -75,7 +87,7 @@ def main():
             raise ValueError(f'{path.name}: inconsistent empirical summary.')
         print(f'{path.stem}: empirical summary checked (not a universal maximum).')
     print(f'{count} saved solutions independently validated; published witness proves maximum = 10.')
-    print('The local DFS experiment is separate and found five weeks within its budget.')
+    print('Numeric DFS found five; enhanced DFS experiments are separately labelled and independently checked.')
 
 
 if __name__ == '__main__':

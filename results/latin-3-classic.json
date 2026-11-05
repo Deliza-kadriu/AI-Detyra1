@@ -12,7 +12,7 @@
     "expanded_nodes": 326,
     "backtracks": 307,
     "max_depth": 9,
-    "elapsed_seconds": 0.0001479579950682819,
+    "elapsed_seconds": 0.00016829199739731848,
     "status": "solved",
     "iterations": [
       {

@@ -9,7 +9,7 @@ const descriptions = {
 };
 let examples = {}, running = false, runId = null, result = null, timer = null;
 let started = 0, eventCount = 0, logCount = 0, activeAlgorithm = 'golfers';
-let initialSudoku = null, baselines = {}, benchmarkRows = [];
+let initialSudoku = null, baselines = {}, benchmarkRows = [], activeParameters = null;
 const benchmarkDefaults = {sudoku:[25,65,10,3,0,81,'Empty cells'],golfers:[1,7,1,1,1,20,'Weeks'],latin:[1,6,1,1,1,7,'Square size'],trees:[0,8,2,1,0,20,'Depth limit']};
 const inputBoard = $('puzzle-input');
 for (let i = 0; i < 81; i++) {
@@ -66,6 +66,11 @@ function syncForm() {
   document.querySelector('[for="bench-seed"]').hidden = algorithm !== 'sudoku';
   document.querySelector('#tree-problem option[value="all"]').disabled = benchmark;
   if (benchmark && $('tree-problem').value === 'all') $('tree-problem').value = '8-puzzle';
+  const enhanced = $('golf-strategy').value !== 'numeric';
+  $('enhanced-controls').hidden = !enhanced;
+  for (const control of $('enhanced-controls').querySelectorAll('input')) control.disabled = running || !enhanced || algorithm !== 'golfers';
+  const strategyNotes={numeric:'The coursework baseline follows numeric candidate order.',restarts:'Extra mode: constrained players first, forward checking and seeded DFS restarts. The longest valid prefix is retained.',structured:'Extra mode for 8 groups of 4: mathematical candidate preferences help reach nine weeks. This uses additional structure, not the baseline uninformed ordering. Ten still requires search.'};
+  $('strategy-note').textContent = strategyNotes[$('golf-strategy').value];
   $('stop').disabled = !running;
   $('run').innerHTML = running ? '<span>●</span> Running…' : `<span>▶</span> ${benchmark ? 'Measure limits' : 'Run experiment'}`;
   $('delay').disabled = running || !$('trace').checked;
@@ -90,8 +95,15 @@ $('trace').addEventListener('change', syncForm);
 $('mode').addEventListener('change', syncForm);
 $('delay').addEventListener('input', () => $('delay-value').textContent = `${$('delay').value} ms`);
 for (const id of ['groups','players','weeks']) $(id).addEventListener('input', updateBound);
-$('small-preset').onclick = () => { $('groups').value = 3; $('players').value = 2; $('weeks').value = 5; updateBound(); };
-$('large-preset').onclick = () => { $('groups').value = 8; $('players').value = 4; $('weeks').value = 5; updateBound(); };
+$('golf-strategy').onchange = syncForm;
+$('small-preset').onclick = () => { $('golf-strategy').value='numeric'; $('groups').value = 3; $('players').value = 2; $('weeks').value = 5; syncForm(); };
+$('large-preset').onclick = () => { $('golf-strategy').value='numeric'; $('groups').value = 8; $('players').value = 4; $('weeks').value = 5; syncForm(); };
+$('push-preset').onclick = () => {
+  $('mode').value='single'; $('groups').value=8; $('players').value=4; $('weeks').value=10;
+  $('golf-strategy').value='structured'; $('golf-seed').value=2026; $('restart-nodes').value=10000;
+  $('maximize').checked=false; $('trace').checked=false; $('delay').value=0;
+  $('max-nodes').value=2000000; $('time-limit').value=30; syncForm();
+};
 $('difficulty').onchange = () => {
   const level = $('difficulty').value;
   if (examples[level] || level === 'all') sudokuInput(examples[level] || examples.easy);
@@ -177,7 +189,10 @@ function renderCase(event) {
   metrics(event.stats);
   const section = element('div', undefined, 'result-case');
   let title = event.weeks ? `${event.weeks} weeks` : event.difficulty || (event.size ? `${event.size} × ${event.size} Latin Square` : event.tree?.problem || 'Result');
+  if (event.target_weeks && event.target_weeks !== event.weeks && event.schedule) title += ` retained / ${event.target_weeks}-week target`;
   section.append(element('h3',title));
+  if(event.target_reached === false && event.schedule) section.append(element('p',`Valid partial achievement: ${event.weeks} complete weeks. The ${event.target_weeks}-week target was not reached.`, 'muted'));
+  if(event.strategy && event.strategy !== 'numeric') section.append(element('p',`Extra search mode: ${event.strategy}; ${event.stats.attempts || 0} attempts, ${event.stats.restarts || 0} restarts.`, 'muted'));
   const status = event.stats?.status || event.status || 'complete';
   const checked = event.validation?.valid;
   const text = checked ? 'PASS · Independent constraint validation' : status === 'infeasible' ? 'Infeasible · No valid completion exists' : status === 'resource_limit' ? 'Resource limit · Feasibility remains unknown' : event.tree && !event.tree.solution_path.length ? 'No goal found within the selected limits' : status;
@@ -201,6 +216,15 @@ function renderCase(event) {
   log(`CASE ${title}: ${status}${checked ? '; validation PASS' : ''}`);
 }
 function processEvent(event) {
+  if(event.type === 'best') {
+    metrics(event.stats);
+    $('visual').replaceChildren(scheduleView(event.schedule));
+    $('case-name').textContent=`Best so far: ${event.weeks} weeks`;
+    $('current-step').textContent=`${event.weeks} complete weeks independently validated. Searching toward target ${event.target_weeks}…`;
+    result={algorithm:'golfers',kind:'best_so_far',parameters:activeParameters,schedule:event.schedule,weeks:event.weeks,target_weeks:event.target_weeks,target_reached:event.weeks===event.target_weeks,validation:event.validation,strategy:event.strategy};
+    $('download').disabled=false;
+    log(`BEST: ${event.weeks} complete weeks; independent validation PASS`); return;
+  }
   if (event.type === 'benchmark_progress') {
     $('current-step').textContent = `${event.message} · ${event.completed}/${event.planned} trials completed`;
     $('events').textContent = `${event.completed}/${event.planned}`;
@@ -265,7 +289,7 @@ function parameters() {
   const params = {algorithm, mode:$('mode').value, run_id:crypto.randomUUID(), trace:$('trace').checked,
     delay:$('trace').checked ? Number($('delay').value)/1000 : 0,
     max_nodes:Number($('max-nodes').value), time_limit:Number($('time-limit').value)};
-  if (algorithm === 'golfers') Object.assign(params,{groups:Number($('groups').value),players_per_group:Number($('players').value),weeks:Number($('weeks').value),maximize:$('maximize').checked});
+  if (algorithm === 'golfers') Object.assign(params,{groups:Number($('groups').value),players_per_group:Number($('players').value),weeks:Number($('weeks').value),maximize:$('maximize').checked,strategy:$('golf-strategy').value,seed:Number($('golf-seed').value),restart_nodes:Number($('restart-nodes').value)});
   if (algorithm === 'sudoku') Object.assign(params,{difficulty:$('difficulty').value,board:readBoard(),max_frontier:Number($('max-frontier').value)});
   if (algorithm === 'latin') Object.assign(params,{size:Number($('size').value),symmetry:$('symmetry').checked,goal_depth_pruning:$('goal-pruning').checked});
   if (algorithm === 'trees') Object.assign(params,{problem:$('tree-problem').value,max_depth:$('max-depth').value === '' ? null : Number($('max-depth').value)});
@@ -277,7 +301,7 @@ function parameters() {
 }
 $('experiment').addEventListener('submit', async event => {
   event.preventDefault(); if (running) return;
-  const params = parameters(); activeAlgorithm = params.algorithm; runId = params.run_id;
+  const params = parameters(); activeParameters=params; activeAlgorithm = params.algorithm; runId = params.run_id;
   initialSudoku = params.algorithm === 'sudoku' ? (examples[params.difficulty] || params.board) : null;
   running = true; result = null; eventCount = 0; logCount = 0; benchmarkRows = [];
   $('results').replaceChildren(); $('trace-log').replaceChildren(); $('download').disabled = true;
@@ -356,7 +380,7 @@ function updatePerformance() {
   const algorithm=$('algorithm').value, area=$('performance-info'); area.replaceChildren();
   const notes = {
     sudoku:'Blank count alone does not predict time. Any completion can exist even with 81 blanks, but our BFS may exceed its budget. A uniquely solvable standard Sudoku can have at most 64 blanks (17 clues); that does not guarantee unique solvability for a given 17-clue board. This solver finds one completion and does not test uniqueness.',
-    golfers:'The mathematical bound is floor((players−1)/(group size−1)). For 32 players in groups of four, ten weeks is attainable using the published witness. Our local DFS found five within its recorded budget; more time is not guaranteed to find the next week.',
+    golfers:'The mathematical bound is floor((players−1)/(group size−1)). For 32 players in groups of four, ten weeks is attainable using the published witness. Numeric DFS found five within its recorded budget. Optional restarts reach further; structure-guided DFS can retain nine. More time alone does not guarantee ten, and a nine-week prefix may require earlier changes to extend.',
     latin:'A Latin Square exists for every positive n: a cyclic construction proves existence. IDDFS has a practical resource limit, not a mathematical maximum size. Symmetry and pruning settings strongly affect timing.',
     trees:'Depth here is an exploration budget, not a measure of initial puzzle difficulty. More depth usually explores more states; reaching the node or time cap truncates the tree. Goal discovery and exhausting a state graph are different outcomes.',
     reference:'The ten-week schedule is published reference evidence. Checking a witness is much cheaper than searching for one; its verification time is not a DFS runtime estimate.'

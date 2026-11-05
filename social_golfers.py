@@ -186,21 +186,37 @@ def solve_dfs(problem: GolfersProblem, *, max_nodes: int | None = None,
 
 
 def run_case(problem: GolfersProblem, time_limit: float, max_nodes: int,
-             trace: Callable[[str], None] | None = None) -> dict:
+             trace: Callable[[str], None] | None = None, *, strategy='numeric',
+             seed=2026, restart_nodes=10000) -> dict:
     # Validator deliberately reconstructs all pairs rather than using DFS state.
     from validate_golfers import validate_schedule
-    stats = SearchStats()
+    if strategy not in ('numeric', 'restarts', 'structured'):
+        raise ValueError('Unknown DFS strategy.')
+    if strategy != 'numeric':
+        from golfers_explore import ExploreStats, solve_explore
+        stats = ExploreStats()
+    else:
+        stats = SearchStats()
     schedule = None
     try:
-        schedule = solve_dfs(problem, time_limit=time_limit, max_nodes=max_nodes,
-                             stats=stats, trace=trace)
+        if strategy == 'numeric':
+            schedule = solve_dfs(problem, time_limit=time_limit, max_nodes=max_nodes,
+                                 stats=stats, trace=trace)
+        else:
+            schedule = solve_explore(problem, strategy=strategy, seed=seed,
+                                     restart_nodes=restart_nodes, time_limit=time_limit,
+                                     max_nodes=max_nodes, stats=stats, trace=trace)
     except SearchLimitReached:
         pass
     validation = validate_schedule(schedule, problem.groups, problem.players_per_group,
-                                   problem.weeks) if schedule is not None else None
+                                   len(schedule)) if schedule is not None else None
     if validation is not None and not validation["valid"]:
         raise RuntimeError(f"Solver returned an invalid schedule: {validation}")
-    return {"problem": asdict(problem), "algorithm": "DFS with backtracking",
+    return {"problem": asdict(problem), "algorithm": "DFS with backtracking", "strategy": strategy,
+            "completed_weeks": len(schedule) if schedule else 0,
+            "target_reached": bool(schedule and len(schedule) == problem.weeks),
+            "seed": seed if strategy != 'numeric' else None,
+            "restart_nodes": restart_nodes if strategy != 'numeric' else None,
             "stats": asdict(stats), "schedule": schedule, "validation": validation}
 
 
@@ -211,6 +227,11 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--weeks", type=int, default=2)
     parser.add_argument("--time-limit", type=float, default=5.0, help="seconds per case")
     parser.add_argument("--max-nodes", type=int, default=1_000_000)
+    parser.add_argument('--strategy', choices=['numeric', 'restarts', 'structured'], default='numeric',
+                        help='numeric is the coursework baseline; other modes add constraint ordering/restarts')
+    parser.add_argument('--seed', type=int, default=2026)
+    parser.add_argument('--restart-nodes', type=int, default=10000,
+                        help='per-attempt node budget within the global limits')
     parser.add_argument("--maximize", action="store_true",
                         help="try increasing weeks up to --weeks or the pair bound")
     parser.add_argument("--output", type=Path, help="save actual runs as JSON")
@@ -238,22 +259,25 @@ def main(argv: list[str] | None = None) -> None:
         for w in weeks:
             run = run_case(GolfersProblem(args.groups, args.players_per_group, w),
                            args.time_limit, args.max_nodes,
-                           trace=show_trace if args.trace else None)
+                           trace=show_trace if args.trace else None, strategy=args.strategy,
+                           seed=args.seed, restart_nodes=args.restart_nodes)
             runs.append(run)
             stats = run["stats"]
             print(f"{w} weeks: {stats['status']}; {stats['expanded_nodes']} nodes; "
                   f"{stats['elapsed_seconds']:.4f}s; {stats['backtracks']} backtracks")
             if run["schedule"] is not None:
-                best = w
+                best = max(best, len(run['schedule']))
+                print(f"  Retained {len(run['schedule'])} complete weeks; requested target: {w}.")
                 for index, groups in enumerate(run["schedule"], 1):
                     print(f"  Week {index}: " + " | ".join(
                         ",".join(map(str, group)) for group in groups))
                 print("  Independent validation: PASS; repeated-pair objective: 0")
-            else:
+            if not run['target_reached']:
                 break  # Feasibility is monotone in weeks; a limit proves nothing.
         summary = {"best_weeks_found": best, "pair_counting_upper_bound": bound,
                    "maximum_proven": bool(best and bound is not None and best == bound)
-                   or bool(args.maximize and best and runs[-1]["stats"]["status"] == "infeasible")}
+                   or bool(args.maximize and best and runs[-1]["stats"]["status"] == "infeasible"
+                           and runs[-1]['problem']['weeks'] == best+1)}
         print(json.dumps(summary))
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)

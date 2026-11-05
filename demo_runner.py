@@ -29,7 +29,7 @@ def run_experiment(params, emit):
 
     algorithm = params.get('algorithm', 'golfers')
     seconds = number(params, 'time_limit', 30, 0.01, 120, False)
-    max_nodes = number(params, 'max_nodes', 200000, 1, 2000000)
+    max_nodes = number(params, 'max_nodes', 200000, 1, 50000000)
     delay = number(params, 'delay', 0, 0, 0.5, False)
     traced = params.get('trace', True)
     if type(traced) is not bool:
@@ -64,30 +64,56 @@ def run_experiment(params, emit):
         w = number(params, 'weeks', 5, 1, 20)
         if g*p > 64:
             raise ValueError('Use at most 64 players in the demonstration UI.')
+        strategy = params.get('strategy', 'numeric')
+        if strategy not in ('numeric','restarts','structured'):
+            raise ValueError('Unknown DFS strategy.')
+        seed = number(params, 'seed', 2026, 0, 1000000)
+        restart_nodes = number(params, 'restart_nodes', 10000, 1, 50000000)
         base = GolfersProblem(g, p, w)
         bound = base.week_upper_bound()
         target = min(w, bound) if bound is not None else w
         best = 0
         maximum = False
         for weeks in (range(1, target+1) if params.get('maximize', False) else [w]):
-            stats = SearchStats()
+            if strategy != 'numeric':
+                from golfers_explore import ExploreStats, solve_explore
+                stats = ExploreStats()
+            else:
+                stats = SearchStats()
+
+            def best_found(schedule):
+                validation = validate_schedule(schedule,g,p,len(schedule))
+                if not validation['valid']:
+                    raise RuntimeError('Invalid best-so-far prefix.')
+                emit({'type':'best','algorithm':'golfers','schedule':schedule,
+                      'weeks':len(schedule),'target_weeks':weeks,'strategy':strategy,
+                      'stats':asdict(stats),'validation':validation})
             solution = None
             stop_reason = None
             try:
-                solution = solve_dfs(GolfersProblem(g, p, weeks), max_nodes=max_nodes,
-                                     time_limit=seconds, stats=stats, trace=callback(stats))
+                if strategy == 'numeric':
+                    solution = solve_dfs(GolfersProblem(g, p, weeks), max_nodes=max_nodes,
+                                         time_limit=seconds, stats=stats, trace=callback(stats))
+                else:
+                    solution = solve_explore(GolfersProblem(g,p,weeks), strategy=strategy,
+                        seed=seed,restart_nodes=restart_nodes,max_nodes=max_nodes,
+                        time_limit=seconds,stats=stats,trace=callback(stats),on_best=best_found)
+                    stop_reason = stats.stop_reason
             except SearchLimitReached as exc:
                 stop_reason = str(exc)
-            validation = validate_schedule(solution, g, p, weeks) if solution is not None else None
-            run = {'weeks': weeks, 'schedule': solution, 'stats': asdict(stats),
+            completed = len(solution) if solution else 0
+            validation = validate_schedule(solution, g, p, completed) if solution is not None else None
+            run = {'weeks': completed if completed else weeks, 'target_weeks':weeks,
+                   'target_reached':completed == weeks, 'strategy':strategy,
+                   'schedule': solution, 'stats': asdict(stats),
                    'stop_reason': stop_reason, 'validation': validation}
             runs.append(run)
             emit({'type': 'case', 'algorithm': algorithm, **run})
-            if solution is not None:
-                best = weeks
-                maximum = bound is not None and weeks == bound
-            else:
-                maximum = bool(params.get('maximize') and best and stats.status == 'infeasible')
+            best = max(best,completed)
+            maximum = bool(bound is not None and best == bound)
+            if completed != weeks:
+                maximum = maximum or bool(params.get('maximize') and best
+                    and stats.status == 'infeasible' and weeks == best+1)
                 break
         summary = {'best_weeks_found': best, 'pair_counting_upper_bound': bound,
                    'maximum_proven': maximum}

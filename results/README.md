@@ -33,3 +33,10 @@ seeds/settings, trial inputs/results, validation and empirical summaries. The
 recorded largest success is not a universal maximum or runtime prediction.
 `reproduce.py` regenerates them and `verify_results.py` checks successful
 completions and empirical summary consistency.
+
+`golfers-restarts-32.json` retains seven weeks from enhanced restarted DFS.
+`golfers-explore-32.json` retains nine weeks from structure-guided DFS while
+reporting that the ten-week target was not reached. `golfers-structured-9.json`
+records successfully reaching a nine-week target. These are locally generated
+search outputs with independent prefix validation, distinct from the numeric
+baseline and the published ten-week reference.

@@ -19,7 +19,7 @@
     "python": "3.13.5",
     "system": "Darwin",
     "architecture": "arm64",
-    "checked_at_utc": "2026-11-04T22:44:57.585300+00:00",
+    "checked_at_utc": "2026-11-04T23:12:06.387826+00:00",
     "seconds_per_case": 0.5,
     "total_budget_seconds": 5.0,
     "sudoku_generator": "cyclic solved grid; sample blanks with random.Random(seed + sample_index)",
@@ -35,9 +35,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 4.583998816087842e-06,
-      "max_solved_seconds": 4.583998816087842e-06,
-      "median_observed_seconds": 4.583998816087842e-06,
+      "median_solved_seconds": 4.457993782125413e-06,
+      "max_solved_seconds": 4.457993782125413e-06,
+      "median_observed_seconds": 4.457993782125413e-06,
       "median_nodes": 1,
       "peak_frontier": 0
     },
@@ -50,9 +50,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 8.916002116166055e-06,
-      "max_solved_seconds": 8.916002116166055e-06,
-      "median_observed_seconds": 8.916002116166055e-06,
+      "median_solved_seconds": 8.874994819052517e-06,
+      "max_solved_seconds": 8.874994819052517e-06,
+      "median_observed_seconds": 8.874994819052517e-06,
       "median_nodes": 3,
       "peak_frontier": 0
     },
@@ -65,9 +65,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 1.9416998839005828e-05,
-      "max_solved_seconds": 1.9416998839005828e-05,
-      "median_observed_seconds": 1.9416998839005828e-05,
+      "median_solved_seconds": 2.0209001377224922e-05,
+      "max_solved_seconds": 2.0209001377224922e-05,
+      "median_observed_seconds": 2.0209001377224922e-05,
       "median_nodes": 19,
       "peak_frontier": 0
     },
@@ -80,9 +80,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 8.270800753962249e-05,
-      "max_solved_seconds": 8.270800753962249e-05,
-      "median_observed_seconds": 8.270800753962249e-05,
+      "median_solved_seconds": 8.116601384244859e-05,
+      "max_solved_seconds": 8.116601384244859e-05,
+      "median_observed_seconds": 8.116601384244859e-05,
       "median_nodes": 161,
       "peak_frontier": 0
     },
@@ -95,9 +95,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 0.002272124998853542,
-      "max_solved_seconds": 0.002272124998853542,
-      "median_observed_seconds": 0.002272124998853542,
+      "median_solved_seconds": 0.0023791660059941933,
+      "max_solved_seconds": 0.0023791660059941933,
+      "median_observed_seconds": 0.0023791660059941933,
       "median_nodes": 4914,
       "peak_frontier": 0
     },
@@ -114,7 +114,7 @@
       "goals_found": 0,
       "median_solved_seconds": null,
       "max_solved_seconds": null,
-      "median_observed_seconds": 0.09077533399977256,
+      "median_observed_seconds": 0.09166674999869429,
       "median_nodes": 200000,
       "peak_frontier": 0
     }
@@ -126,7 +126,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 4.583998816087842e-06,
+      "elapsed_seconds": 4.457993782125413e-06,
       "expanded_nodes": 1,
       "peak_frontier": null,
       "backtracks": 0,
@@ -143,7 +143,7 @@
           "expanded_nodes": 1,
           "backtracks": 0,
           "max_depth": 0,
-          "elapsed_seconds": 4.583998816087842e-06,
+          "elapsed_seconds": 4.457993782125413e-06,
           "status": "solved",
           "iterations": [
             {
@@ -168,7 +168,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 8.916002116166055e-06,
+      "elapsed_seconds": 8.874994819052517e-06,
       "expanded_nodes": 3,
       "peak_frontier": null,
       "backtracks": 0,
@@ -190,7 +190,7 @@
           "expanded_nodes": 3,
           "backtracks": 0,
           "max_depth": 1,
-          "elapsed_seconds": 8.916002116166055e-06,
+          "elapsed_seconds": 8.874994819052517e-06,
           "status": "solved",
           "iterations": [
             {
@@ -220,7 +220,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 1.9416998839005828e-05,
+      "elapsed_seconds": 2.0209001377224922e-05,
       "expanded_nodes": 19,
       "peak_frontier": null,
       "backtracks": 10,
@@ -249,7 +249,7 @@
           "expanded_nodes": 19,
           "backtracks": 10,
           "max_depth": 4,
-          "elapsed_seconds": 1.9416998839005828e-05,
+          "elapsed_seconds": 2.0209001377224922e-05,
           "status": "solved",
           "iterations": [
             {
@@ -294,7 +294,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 8.270800753962249e-05,
+      "elapsed_seconds": 8.116601384244859e-05,
       "expanded_nodes": 161,
       "peak_frontier": null,
       "backtracks": 142,
@@ -332,7 +332,7 @@
           "expanded_nodes": 161,
           "backtracks": 142,
           "max_depth": 9,
-          "elapsed_seconds": 8.270800753962249e-05,
+          "elapsed_seconds": 8.116601384244859e-05,
           "status": "solved",
           "iterations": [
             {
@@ -402,7 +402,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 0.002272124998853542,
+      "elapsed_seconds": 0.0023791660059941933,
       "expanded_nodes": 4914,
       "peak_frontier": null,
       "backtracks": 4881,
@@ -451,7 +451,7 @@
           "expanded_nodes": 4914,
           "backtracks": 4881,
           "max_depth": 16,
-          "elapsed_seconds": 0.002272124998853542,
+          "elapsed_seconds": 0.0023791660059941933,
           "status": "solved",
           "iterations": [
             {
@@ -556,7 +556,7 @@
       "seed": null,
       "status": "resource_limit",
       "success": false,
-      "elapsed_seconds": 0.09077533399977256,
+      "elapsed_seconds": 0.09166674999869429,
       "expanded_nodes": 200000,
       "peak_frontier": null,
       "backtracks": 199966,
@@ -569,7 +569,7 @@
           "expanded_nodes": 200000,
           "backtracks": 199966,
           "max_depth": 17,
-          "elapsed_seconds": 0.09077533399977256,
+          "elapsed_seconds": 0.09166674999869429,
           "status": "resource_limit",
           "iterations": [
             {
@@ -676,7 +676,7 @@
     "completed_trials": 6,
     "planned_trials": 6,
     "total_budget_exhausted": false,
-    "wall_seconds": 0.0959939580061473,
+    "wall_seconds": 0.096892083005514,
     "claim": "Observed successes for these instances and budgets only; not a universal maximum or runtime prediction."
   }
 }

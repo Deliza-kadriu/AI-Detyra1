@@ -412,7 +412,7 @@
       "unique_states": 14,
       "tree_nodes": 19,
       "peak_frontier": 8,
-      "elapsed_seconds": 2.216699067503214e-05
+      "elapsed_seconds": 2.258300082758069e-05
     },
     "validation": {
       "valid": true,
@@ -1040,7 +1040,7 @@
       "unique_states": 15,
       "tree_nodes": 31,
       "peak_frontier": 3,
-      "elapsed_seconds": 3.454199759289622e-05
+      "elapsed_seconds": 3.4500000765547156e-05
     },
     "validation": {
       "valid": true,
@@ -2486,7 +2486,7 @@
       "unique_states": 67,
       "tree_nodes": 67,
       "peak_frontier": 19,
-      "elapsed_seconds": 0.00025762499717529863
+      "elapsed_seconds": 0.00025674999051261693
     },
     "validation": {
       "valid": true,

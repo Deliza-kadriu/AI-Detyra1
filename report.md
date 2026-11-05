@@ -1,6 +1,6 @@
 # Detyra 1 — Initial report
 
-Status: all four assignment sections implemented and measured. A separately attributed, independently validated ten-week reference witness establishes the Social Golfers optimum; local DFS results remain distinct.
+Status: all four assignment sections implemented and measured. A separately attributed, independently validated ten-week reference witness establishes the Social Golfers optimum; numeric DFS baseline results remain distinct.
 Assignment source and interpretation notes: `docs/SOURCES.md`.
 
 ## 1. Social Golfers
@@ -19,7 +19,7 @@ With unordered groups and players, the number of weekly partitions is
 P = n! / ((p!)^g * g!). The complete candidate space is P^w before pair
 constraints; weeks are ordered. This counts complete candidates, not all tree
 nodes. For p>1, w <= floor((n-1)/(p-1)): a player meets p-1 new players each week.
-For 32 players in groups of four, w <= 10. The local DFS runs below do not attain
+For 32 players in groups of four, w <= 10. The numeric DFS baseline runs below do not attain
 this bound; the separately validated published witness does.
 
 ### Representation and transitions
@@ -88,7 +88,7 @@ also solve a 3-group, 2-player, 5-week instance after backtracking. Two groups
 of three players cannot play two weeks: DFS exhaustively rejects this instance
 even though the simple pair bound permits two weeks.
 
-The local DFS experiment alone establishes five feasible weeks and an upper
+The numeric DFS baseline experiment alone establishes five feasible weeks and an upper
 bound of ten. It does not resolve the exact maximum. The published witness
 in the next subsection separately resolves that mathematical question. Increasing
 DFS limits may help search but does not guarantee quick discovery of the optimum.
@@ -155,6 +155,61 @@ remain unchanged. Reproduce the reference check with:
 ```sh
 python3 main.py golfers-reference
 ```
+
+### Extra search modes: reaching beyond the numeric baseline
+
+The baseline `solve_dfs` remains the required numeric DFS/backtracking algorithm.
+`golfers_explore.py` adds explicitly separate enhanced search experiments. Both
+extra modes choose the remaining player with the fewest compatible partners,
+reject a partition if that count is below p-1, filter group candidates for pair
+compatibility, and undo whole-group pair updates on backtracking. Seeded branch
+orders and per-attempt node caps diversify repeated attempts. Time and node
+limits apply globally, so restarting does not reset the total resource budget.
+
+A complete-week snapshot is retained whenever it improves the best result. A
+budget stop can therefore return nine valid weeks while reporting that a
+requested ten-week target was not reached. `target_reached`, `completed_weeks`,
+search status and independent prefix validation are separate fields. The UI
+streams best-so-far schedules even with detailed tracing disabled and permits
+exporting them if the user stops the process.
+
+Structured ordering adds a mathematical preference for the 32-player case.
+Represent player a as (x,y) with x=a mod 4 and y=floor(a/4). Arithmetic in y uses
+GF(8), represented with irreducible polynomial x^3+x+1. For the first eight
+weeks, prefer groups with the same y + s*x for slopes s=0..7. Each of the eight
+groups contains four players, one per x. Two players with different x can share
+such a group for only one slope; players with equal x never meet in these weeks.
+For week nine, prefer each fixed-x set split by the two halves of y, producing
+eight groups of four. All newly introduced pairs have equal x, so none repeats
+an earlier pair. These formulas generate candidate preferences, not a stored
+schedule loaded from a source. DFS still checks every choice against its pair
+constraints. After the first attempt, restarts use different constrained branch
+orders rather than replaying the same preferred path.
+
+This is extra structure and heuristic ordering, not a claim that the original
+uninformed numeric DFS suddenly finds nine weeks. The three approaches must be
+labelled separately in the presentation. In particular, the nine-week preferred
+arrangement cannot append a tenth week: its remaining allowable pairs are four
+disjoint K(4,4) graphs, which contain no four-player clique. Searching for ten
+must change earlier weeks. The search is permitted to backtrack to those weeks;
+the published ten-week witness remains separate evidence of attainability.
+
+Recorded runs (seed 2026, 10,000 nodes per attempt, 100,000 global node cap,
+three-second global time cap) are in `results/golfers-*.json`:
+
+| Extra strategy | Target | Complete weeks retained | Outcome |
+| --- | ---: | ---: | --- |
+| restarts | 10 | 7 | resource_limit |
+| structured | 10 | 9 | resource_limit |
+| structured | 9 | 9 | solved |
+
+All retained schedules pass the same independent validator used for the baseline.
+Tests also verify partial-prefix metadata, fixed-seed reproducibility, global
+restart budgets, infeasible small cases and reaching nine with file reads
+blocked. `reproduce.py` regenerates these runs and `verify_results.py` rechecks
+the schedules and target metadata. Use `--strategy numeric` for the original
+algorithm, `--strategy restarts` for generic enhancement, or `--strategy structured`
+for the 32-player experiment.
 
 ## 2. Sudoku
 
@@ -435,7 +490,7 @@ search statistics; DFS/IDDFS record active assignment depth and BFS records peak
 frontier. Counts are not byte-level memory measurements.
 
 The mathematical Social Golfers maximum is established as ten using an attributed
-published witness. Local DFS still finds only five within the saved budget and
+published witness. Numeric DFS baseline still finds only five within the saved budget and
 does not discover that optimum. Sudoku level labels are generated demonstrations,
 not certified difficulty ratings, and uniqueness is not established. The
 8-Puzzle tree is intentionally partial; the workforce rules are an explicitly
@@ -446,7 +501,7 @@ chosen instance. The Sudoku section explains the interpretation of the brief's
 
 `python3 reproduce.py` regenerates all local solver outputs, search trees and the
 published-witness certificate and bounded benchmark sweeps, then independently
-revalidates baseline solutions and successful benchmark trials and runs 34 tests. It requires only the Python standard library and no internet.
+revalidates baseline solutions and successful benchmark trials and runs 39 tests. It requires only the Python standard library and no internet.
 Timings are measurements of one run and vary across machines. This command
 overwrites generated files in `results/`; it never substitutes a reference
 schedule for the DFS search result.
@@ -555,7 +610,7 @@ finds one completion and does not establish uniqueness. Thus neither 64 nor
 our observed 45 is a general performance threshold for BFS.
 
 Golfers' pair-counting bound and the published ten-week witness establish the
-mathematical optimum for 32 players, independently of local DFS runtime. Latin
+mathematical optimum for 32 players, independently of numeric DFS baseline runtime. Latin
 Squares exist for every positive size (a cyclic construction suffices), while
 IDDFS is limited by available computation. For trees, success in the table means
 completing the requested depth budget without a node/time stop; goal discovery

@@ -19,7 +19,7 @@
     "python": "3.13.5",
     "system": "Darwin",
     "architecture": "arm64",
-    "checked_at_utc": "2026-11-04T22:44:57.444865+00:00",
+    "checked_at_utc": "2026-11-04T23:12:06.259975+00:00",
     "seconds_per_case": 0.5,
     "total_budget_seconds": 5.0,
     "sudoku_generator": "cyclic solved grid; sample blanks with random.Random(seed + sample_index)",
@@ -35,9 +35,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 1.287501072511077e-05,
-      "max_solved_seconds": 1.287501072511077e-05,
-      "median_observed_seconds": 1.287501072511077e-05,
+      "median_solved_seconds": 1.1334006558172405e-05,
+      "max_solved_seconds": 1.1334006558172405e-05,
+      "median_observed_seconds": 1.1334006558172405e-05,
       "median_nodes": 1,
       "peak_frontier": 0
     },
@@ -50,9 +50,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 6.29170099273324e-05,
-      "max_solved_seconds": 6.29170099273324e-05,
-      "median_observed_seconds": 6.29170099273324e-05,
+      "median_solved_seconds": 5.3750001825392246e-05,
+      "max_solved_seconds": 5.3750001825392246e-05,
+      "median_observed_seconds": 5.3750001825392246e-05,
       "median_nodes": 43,
       "peak_frontier": 0
     },
@@ -65,9 +65,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 0.000251375007792376,
-      "max_solved_seconds": 0.000251375007792376,
-      "median_observed_seconds": 0.000251375007792376,
+      "median_solved_seconds": 0.00019604199042078108,
+      "max_solved_seconds": 0.00019604199042078108,
+      "median_observed_seconds": 0.00019604199042078108,
       "median_nodes": 85,
       "peak_frontier": 0
     },
@@ -80,9 +80,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 0.00015591600094921887,
-      "max_solved_seconds": 0.00015591600094921887,
-      "median_observed_seconds": 0.00015591600094921887,
+      "median_solved_seconds": 0.00013933300215285271,
+      "max_solved_seconds": 0.00013933300215285271,
+      "median_observed_seconds": 0.00013933300215285271,
       "median_nodes": 127,
       "peak_frontier": 0
     },
@@ -95,9 +95,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 0.00021708299755118787,
-      "max_solved_seconds": 0.00021708299755118787,
-      "median_observed_seconds": 0.00021708299755118787,
+      "median_solved_seconds": 0.00018362500122748315,
+      "max_solved_seconds": 0.00018362500122748315,
+      "median_observed_seconds": 0.00018362500122748315,
       "median_nodes": 169,
       "peak_frontier": 0
     },
@@ -114,7 +114,7 @@
       "goals_found": 0,
       "median_solved_seconds": null,
       "max_solved_seconds": null,
-      "median_observed_seconds": 0.4388717080000788,
+      "median_observed_seconds": 0.42511066600854974,
       "median_nodes": 200000,
       "peak_frontier": 0
     },
@@ -131,7 +131,7 @@
       "goals_found": 0,
       "median_solved_seconds": null,
       "max_solved_seconds": null,
-      "median_observed_seconds": 0.4420419160014717,
+      "median_observed_seconds": 0.42052958300337195,
       "median_nodes": 200000,
       "peak_frontier": 0
     }
@@ -143,7 +143,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 1.287501072511077e-05,
+      "elapsed_seconds": 1.1334006558172405e-05,
       "expanded_nodes": 1,
       "peak_frontier": null,
       "backtracks": 0,
@@ -151,6 +151,9 @@
       "effective_time_limit": 0.5,
       "result": {
         "weeks": 1,
+        "target_weeks": 1,
+        "target_reached": true,
+        "strategy": "numeric",
         "schedule": [
           [
             [
@@ -207,7 +210,7 @@
           "expanded_nodes": 1,
           "backtracks": 0,
           "max_depth": 32,
-          "elapsed_seconds": 1.287501072511077e-05,
+          "elapsed_seconds": 1.1334006558172405e-05,
           "status": "solved"
         },
         "stop_reason": null,
@@ -225,7 +228,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 6.29170099273324e-05,
+      "elapsed_seconds": 5.3750001825392246e-05,
       "expanded_nodes": 43,
       "peak_frontier": null,
       "backtracks": 0,
@@ -233,6 +236,9 @@
       "effective_time_limit": 0.5,
       "result": {
         "weeks": 2,
+        "target_weeks": 2,
+        "target_reached": true,
+        "strategy": "numeric",
         "schedule": [
           [
             [
@@ -339,7 +345,7 @@
           "expanded_nodes": 43,
           "backtracks": 0,
           "max_depth": 64,
-          "elapsed_seconds": 6.29170099273324e-05,
+          "elapsed_seconds": 5.3750001825392246e-05,
           "status": "solved"
         },
         "stop_reason": null,
@@ -357,7 +363,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 0.000251375007792376,
+      "elapsed_seconds": 0.00019604199042078108,
       "expanded_nodes": 85,
       "peak_frontier": null,
       "backtracks": 0,
@@ -365,6 +371,9 @@
       "effective_time_limit": 0.5,
       "result": {
         "weeks": 3,
+        "target_weeks": 3,
+        "target_reached": true,
+        "strategy": "numeric",
         "schedule": [
           [
             [
@@ -521,7 +530,7 @@
           "expanded_nodes": 85,
           "backtracks": 0,
           "max_depth": 96,
-          "elapsed_seconds": 0.000251375007792376,
+          "elapsed_seconds": 0.00019604199042078108,
           "status": "solved"
         },
         "stop_reason": null,
@@ -539,7 +548,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 0.00015591600094921887,
+      "elapsed_seconds": 0.00013933300215285271,
       "expanded_nodes": 127,
       "peak_frontier": null,
       "backtracks": 0,
@@ -547,6 +556,9 @@
       "effective_time_limit": 0.5,
       "result": {
         "weeks": 4,
+        "target_weeks": 4,
+        "target_reached": true,
+        "strategy": "numeric",
         "schedule": [
           [
             [
@@ -753,7 +765,7 @@
           "expanded_nodes": 127,
           "backtracks": 0,
           "max_depth": 128,
-          "elapsed_seconds": 0.00015591600094921887,
+          "elapsed_seconds": 0.00013933300215285271,
           "status": "solved"
         },
         "stop_reason": null,
@@ -771,7 +783,7 @@
       "seed": null,
       "status": "solved",
       "success": true,
-      "elapsed_seconds": 0.00021708299755118787,
+      "elapsed_seconds": 0.00018362500122748315,
       "expanded_nodes": 169,
       "peak_frontier": null,
       "backtracks": 0,
@@ -779,6 +791,9 @@
       "effective_time_limit": 0.5,
       "result": {
         "weeks": 5,
+        "target_weeks": 5,
+        "target_reached": true,
+        "strategy": "numeric",
         "schedule": [
           [
             [
@@ -1035,7 +1050,7 @@
           "expanded_nodes": 169,
           "backtracks": 0,
           "max_depth": 160,
-          "elapsed_seconds": 0.00021708299755118787,
+          "elapsed_seconds": 0.00018362500122748315,
           "status": "solved"
         },
         "stop_reason": null,
@@ -1053,7 +1068,7 @@
       "seed": null,
       "status": "resource_limit",
       "success": false,
-      "elapsed_seconds": 0.4388717080000788,
+      "elapsed_seconds": 0.42511066600854974,
       "expanded_nodes": 200000,
       "peak_frontier": null,
       "backtracks": 165458,
@@ -1061,12 +1076,15 @@
       "effective_time_limit": 0.5,
       "result": {
         "weeks": 6,
+        "target_weeks": 6,
+        "target_reached": false,
+        "strategy": "numeric",
         "schedule": null,
         "stats": {
           "expanded_nodes": 200000,
           "backtracks": 165458,
           "max_depth": 163,
-          "elapsed_seconds": 0.4388717080000788,
+          "elapsed_seconds": 0.42511066600854974,
           "status": "resource_limit"
         },
         "stop_reason": "Node limit reached; feasibility is unknown.",
@@ -1080,7 +1098,7 @@
       "seed": null,
       "status": "resource_limit",
       "success": false,
-      "elapsed_seconds": 0.4420419160014717,
+      "elapsed_seconds": 0.42052958300337195,
       "expanded_nodes": 200000,
       "peak_frontier": null,
       "backtracks": 165458,
@@ -1088,12 +1106,15 @@
       "effective_time_limit": 0.5,
       "result": {
         "weeks": 7,
+        "target_weeks": 7,
+        "target_reached": false,
+        "strategy": "numeric",
         "schedule": null,
         "stats": {
           "expanded_nodes": 200000,
           "backtracks": 165458,
           "max_depth": 163,
-          "elapsed_seconds": 0.4420419160014717,
+          "elapsed_seconds": 0.42052958300337195,
           "status": "resource_limit"
         },
         "stop_reason": "Node limit reached; feasibility is unknown.",
@@ -1108,7 +1129,7 @@
     "completed_trials": 7,
     "planned_trials": 7,
     "total_budget_exhausted": false,
-    "wall_seconds": 0.8849442919890862,
+    "wall_seconds": 0.8492747910058824,
     "claim": "Observed successes for these instances and budgets only; not a universal maximum or runtime prediction."
   }
 }

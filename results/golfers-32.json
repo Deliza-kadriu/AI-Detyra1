@@ -12,11 +12,16 @@
         "weeks": 1
       },
       "algorithm": "DFS with backtracking",
+      "strategy": "numeric",
+      "completed_weeks": 1,
+      "target_reached": true,
+      "seed": null,
+      "restart_nodes": null,
       "stats": {
         "expanded_nodes": 1,
         "backtracks": 0,
         "max_depth": 32,
-        "elapsed_seconds": 1.2042000889778137e-05,
+        "elapsed_seconds": 1.558400981593877e-05,
         "status": "solved"
       },
       "schedule": [
@@ -84,11 +89,16 @@
         "weeks": 2
       },
       "algorithm": "DFS with backtracking",
+      "strategy": "numeric",
+      "completed_weeks": 2,
+      "target_reached": true,
+      "seed": null,
+      "restart_nodes": null,
       "stats": {
         "expanded_nodes": 43,
         "backtracks": 0,
         "max_depth": 64,
-        "elapsed_seconds": 6.0874997870996594e-05,
+        "elapsed_seconds": 6.70830049784854e-05,
         "status": "solved"
       },
       "schedule": [
@@ -206,11 +216,16 @@
         "weeks": 3
       },
       "algorithm": "DFS with backtracking",
+      "strategy": "numeric",
+      "completed_weeks": 3,
+      "target_reached": true,
+      "seed": null,
+      "restart_nodes": null,
       "stats": {
         "expanded_nodes": 85,
         "backtracks": 0,
         "max_depth": 96,
-        "elapsed_seconds": 0.00011316699965391308,
+        "elapsed_seconds": 0.00010058299812953919,
         "status": "solved"
       },
       "schedule": [
@@ -378,11 +393,16 @@
         "weeks": 4
       },
       "algorithm": "DFS with backtracking",
+      "strategy": "numeric",
+      "completed_weeks": 4,
+      "target_reached": true,
+      "seed": null,
+      "restart_nodes": null,
       "stats": {
         "expanded_nodes": 127,
         "backtracks": 0,
         "max_depth": 128,
-        "elapsed_seconds": 0.00013962500088382512,
+        "elapsed_seconds": 0.00012829199840780348,
         "status": "solved"
       },
       "schedule": [
@@ -600,11 +620,16 @@
         "weeks": 5
       },
       "algorithm": "DFS with backtracking",
+      "strategy": "numeric",
+      "completed_weeks": 5,
+      "target_reached": true,
+      "seed": null,
+      "restart_nodes": null,
       "stats": {
         "expanded_nodes": 169,
         "backtracks": 0,
         "max_depth": 160,
-        "elapsed_seconds": 0.0002455000067129731,
+        "elapsed_seconds": 0.00029504200210794806,
         "status": "solved"
       },
       "schedule": [
@@ -872,11 +897,16 @@
         "weeks": 6
       },
       "algorithm": "DFS with backtracking",
+      "strategy": "numeric",
+      "completed_weeks": 0,
+      "target_reached": false,
+      "seed": null,
+      "restart_nodes": null,
       "stats": {
         "expanded_nodes": 1000000,
         "backtracks": 838618,
         "max_depth": 163,
-        "elapsed_seconds": 2.2920905420032796,
+        "elapsed_seconds": 1.5022694999934174,
         "status": "resource_limit"
       },
       "schedule": null,

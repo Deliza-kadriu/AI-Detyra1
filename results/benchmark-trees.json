@@ -19,7 +19,7 @@
     "python": "3.13.5",
     "system": "Darwin",
     "architecture": "arm64",
-    "checked_at_utc": "2026-11-04T22:44:57.619757+00:00",
+    "checked_at_utc": "2026-11-04T23:12:06.420801+00:00",
     "seconds_per_case": 0.5,
     "total_budget_seconds": 5.0,
     "sudoku_generator": "cyclic solved grid; sample blanks with random.Random(seed + sample_index)",
@@ -35,9 +35,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 0,
-      "median_solved_seconds": 2.959000994451344e-06,
-      "max_solved_seconds": 2.959000994451344e-06,
-      "median_observed_seconds": 2.959000994451344e-06,
+      "median_solved_seconds": 3.2910029403865337e-06,
+      "max_solved_seconds": 3.2910029403865337e-06,
+      "median_observed_seconds": 3.2910029403865337e-06,
       "median_nodes": 0,
       "peak_frontier": 1
     },
@@ -50,9 +50,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 1.6833000699989498e-05,
-      "max_solved_seconds": 1.6833000699989498e-05,
-      "median_observed_seconds": 1.6833000699989498e-05,
+      "median_solved_seconds": 1.5666009858250618e-05,
+      "max_solved_seconds": 1.5666009858250618e-05,
+      "median_observed_seconds": 1.5666009858250618e-05,
       "median_nodes": 3,
       "peak_frontier": 4
     },
@@ -65,9 +65,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 2.6792011340148747e-05,
-      "max_solved_seconds": 2.6792011340148747e-05,
-      "median_observed_seconds": 2.6792011340148747e-05,
+      "median_solved_seconds": 2.70830059889704e-05,
+      "max_solved_seconds": 2.70830059889704e-05,
+      "median_observed_seconds": 2.70830059889704e-05,
       "median_nodes": 13,
       "peak_frontier": 14
     },
@@ -80,9 +80,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 0.0001870419946499169,
-      "max_solved_seconds": 0.0001870419946499169,
-      "median_observed_seconds": 0.0001870419946499169,
+      "median_solved_seconds": 0.0001807080116122961,
+      "max_solved_seconds": 0.0001807080116122961,
+      "median_observed_seconds": 0.0001807080116122961,
       "median_nodes": 43,
       "peak_frontier": 31
     },
@@ -95,9 +95,9 @@
       "stop_reasons": {},
       "infeasible": 0,
       "goals_found": 1,
-      "median_solved_seconds": 0.00027062499430030584,
-      "max_solved_seconds": 0.00027062499430030584,
-      "median_observed_seconds": 0.00027062499430030584,
+      "median_solved_seconds": 0.00022408299264498055,
+      "max_solved_seconds": 0.00022408299264498055,
+      "median_observed_seconds": 0.00022408299264498055,
       "median_nodes": 127,
       "peak_frontier": 99
     }
@@ -109,7 +109,7 @@
       "seed": null,
       "status": "completed_depth",
       "success": true,
-      "elapsed_seconds": 2.959000994451344e-06,
+      "elapsed_seconds": 3.2910029403865337e-06,
       "expanded_nodes": 0,
       "peak_frontier": 1,
       "backtracks": null,
@@ -150,7 +150,7 @@
             "unique_states": 1,
             "tree_nodes": 1,
             "peak_frontier": 1,
-            "elapsed_seconds": 2.959000994451344e-06
+            "elapsed_seconds": 3.2910029403865337e-06
           },
           "validation": {
             "valid": false,
@@ -164,7 +164,7 @@
           "unique_states": 1,
           "tree_nodes": 1,
           "peak_frontier": 1,
-          "elapsed_seconds": 2.959000994451344e-06
+          "elapsed_seconds": 3.2910029403865337e-06
         },
         "validation": {
           "valid": false,
@@ -182,7 +182,7 @@
       "seed": null,
       "status": "completed_depth",
       "success": true,
-      "elapsed_seconds": 1.6833000699989498e-05,
+      "elapsed_seconds": 1.5666009858250618e-05,
       "expanded_nodes": 3,
       "peak_frontier": 4,
       "backtracks": null,
@@ -400,7 +400,7 @@
             "unique_states": 7,
             "tree_nodes": 9,
             "peak_frontier": 4,
-            "elapsed_seconds": 1.6833000699989498e-05
+            "elapsed_seconds": 1.5666009858250618e-05
           },
           "validation": {
             "valid": true,
@@ -412,7 +412,7 @@
           "unique_states": 7,
           "tree_nodes": 9,
           "peak_frontier": 4,
-          "elapsed_seconds": 1.6833000699989498e-05
+          "elapsed_seconds": 1.5666009858250618e-05
         },
         "validation": {
           "valid": true,
@@ -428,7 +428,7 @@
       "seed": null,
       "status": "completed_depth",
       "success": true,
-      "elapsed_seconds": 2.6792011340148747e-05,
+      "elapsed_seconds": 2.70830059889704e-05,
       "expanded_nodes": 13,
       "peak_frontier": 14,
       "backtracks": null,
@@ -1289,7 +1289,7 @@
             "unique_states": 28,
             "tree_nodes": 40,
             "peak_frontier": 14,
-            "elapsed_seconds": 2.6792011340148747e-05
+            "elapsed_seconds": 2.70830059889704e-05
           },
           "validation": {
             "valid": true,
@@ -1301,7 +1301,7 @@
           "unique_states": 28,
           "tree_nodes": 40,
           "peak_frontier": 14,
-          "elapsed_seconds": 2.6792011340148747e-05
+          "elapsed_seconds": 2.70830059889704e-05
         },
         "validation": {
           "valid": true,
@@ -1317,7 +1317,7 @@
       "seed": null,
       "status": "completed_depth",
       "success": true,
-      "elapsed_seconds": 0.0001870419946499169,
+      "elapsed_seconds": 0.0001807080116122961,
       "expanded_nodes": 43,
       "peak_frontier": 31,
       "backtracks": null,
@@ -3888,7 +3888,7 @@
             "unique_states": 75,
             "tree_nodes": 118,
             "peak_frontier": 31,
-            "elapsed_seconds": 0.0001870419946499169
+            "elapsed_seconds": 0.0001807080116122961
           },
           "validation": {
             "valid": true,
@@ -3900,7 +3900,7 @@
           "unique_states": 75,
           "tree_nodes": 118,
           "peak_frontier": 31,
-          "elapsed_seconds": 0.0001870419946499169
+          "elapsed_seconds": 0.0001807080116122961
         },
         "validation": {
           "valid": true,
@@ -3916,7 +3916,7 @@
       "seed": null,
       "status": "completed_depth",
       "success": true,
-      "elapsed_seconds": 0.00027062499430030584,
+      "elapsed_seconds": 0.00022408299264498055,
       "expanded_nodes": 127,
       "peak_frontier": 99,
       "backtracks": null,
@@ -11671,7 +11671,7 @@
             "unique_states": 227,
             "tree_nodes": 363,
             "peak_frontier": 99,
-            "elapsed_seconds": 0.00027062499430030584
+            "elapsed_seconds": 0.00022408299264498055
           },
           "validation": {
             "valid": true,
@@ -11683,7 +11683,7 @@
           "unique_states": 227,
           "tree_nodes": 363,
           "peak_frontier": 99,
-          "elapsed_seconds": 0.00027062499430030584
+          "elapsed_seconds": 0.00022408299264498055
         },
         "validation": {
           "valid": true,
@@ -11700,7 +11700,7 @@
     "completed_trials": 5,
     "planned_trials": 5,
     "total_budget_exhausted": false,
-    "wall_seconds": 0.003249959001550451,
+    "wall_seconds": 0.0032820000051287934,
     "claim": "Observed successes for these instances and budgets only; not a universal maximum or runtime prediction."
   }
 }
